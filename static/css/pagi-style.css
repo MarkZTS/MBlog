@@ -1,0 +1,116 @@
+
+
+
+
+.cont {
+  background: #fdfdfd;
+  padding: 1rem;
+  margin: 3rem auto;
+  border-radius: 0.2rem;
+  counter-reset: pagination;
+  text-align: center;
+}
+.cont:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cont .uu {
+  width: 100%;
+}
+
+
+
+.mid {
+  width: 32rem;
+}
+
+
+.uu, .ll {
+  .llst-style: none;
+  display: inline;
+  padding-left: 0px;
+}
+
+.ll {
+  counter-increment: pagination;
+}
+.ll:hover a {
+  color: #fdfdfd;
+  background-color: #1d1f20;
+  border: solid 1px #1d1f20;
+}
+.ll.act a {
+  color: #fdfdfd;
+  background-color: #1d1f20;
+  border: solid 1px #1d1f20;
+}
+.ll:first-child {
+  float: left;
+}
+.ll:first-child a:after {
+  content: "Previous";
+}
+.ll:nth-child(2) {
+  counter-reset: pagination;
+}
+.ll:last-child {
+  float: right;
+}
+.ll:last-child a:after {
+  content: "Next";
+}
+.ll a {
+  border: solid 1px #d6d6d6;
+  border-radius: 0.2rem;
+  color: #7d7d7d;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+}
+.ll a:after {
+  content: " " counter(pagination) " ";
+}
+
+
+
+.mid .ll a {
+  display: none;
+}
+.mid .ll:first-child a {
+  display: inline-block;
+}
+.mid .ll:first-child a:after {
+  content: "<";
+}
+.mid .ll:last-child a {
+  display: inline-block;
+}
+.mid .ll:last-child a:after {
+  content: ">";
+}
+.mid .ll:nth-child(2) a {
+  display: inline-block;
+}
+.mid .ll:nth-child(3) a {
+  display: inline-block;
+}
+.mid .ll:nth-child(4) a {
+  display: inline-block;
+}
+.mid .ll:nth-child(5) a {
+  display: inline-block;
+}
+.mid .ll:nth-last-child(2) a {
+  display: inline-block;
+}
+.mid .ll:nth-last-child(3) {
+  display: inline-block;
+}
+.mid .ll:nth-last-child(3):after {
+  padding: 0 1rem;
+  content: "...";
+}
+
