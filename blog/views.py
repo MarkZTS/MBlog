@@ -23,17 +23,31 @@ class IndexView(View):
         except PageNotAnInteger:
             page = 1
 
-        p = Paginator(posts, 2, request=request)
+        p = Paginator(posts, 5, request=request)
 
         page_posts = p.page(page)
 
-        print(posts.count())
-        page = int(page)
-        if (posts.count() // 7):
-            show_num = range(2, 8)
+        print((posts.count()//5))
+
+        # 分页数
+        pagination_num = posts.count()/5
+        if pagination_num.is_integer():
+            pagination_num = pagination_num
         else:
-            show_num = range(2, 8)
-        # show_num = range(page, page+5)
+            pagination_num = int(pagination_num + 1)
+
+        print("-", pagination_num)
+        # 当前页
+        page = int(page)
+        if pagination_num > 5:
+            if page < 4:
+                show_num = range(2, 7)
+            elif page < (posts.count()//5)-1:
+                show_num = range(page-1, page+4)
+            else:
+                show_num = range((posts.count()//5)-3, (posts.count()//5)+2)
+        else:
+            show_num = range(2, 7)
 
         return render(request, 'index.html', {
             "posts": posts,
