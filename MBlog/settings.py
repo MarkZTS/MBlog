@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog',
     'xadmin',
     'crispy_forms',
+    'pure_pagination',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,9 @@ AUTH_USER_MODEL = 'blog.User'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# PAGINATION_SETTINGS = {
+#     'PAGE_RANGE_DISPLAYED': 1,
+#     'MARGIN_PAGES_DISPLAYED': 1,
+#
+#     'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+# }

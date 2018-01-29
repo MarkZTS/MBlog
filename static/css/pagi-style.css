@@ -1,7 +1,4 @@
 
-
-
-
 .cont {
   background: #fdfdfd;
   padding: 1rem;
@@ -18,20 +15,14 @@
 .cont .uu {
   width: 100%;
 }
-
-
-
 .mid {
   width: 32rem;
 }
-
-
 .uu, .ll {
   .llst-style: none;
   display: inline;
   padding-left: 0px;
 }
-
 .ll {
   counter-increment: pagination;
 }
@@ -91,26 +82,27 @@
 .mid .ll:last-child a:after {
   content: ">";
 }
-.mid .ll:nth-child(2) a {
-  display: inline-block;
-}
-.mid .ll:nth-child(3) a {
-  display: inline-block;
-}
-.mid .ll:nth-child(4) a {
-  display: inline-block;
-}
-.mid .ll:nth-child(5) a {
-  display: inline-block;
-}
-.mid .ll:nth-last-child(2) a {
-  display: inline-block;
-}
-.mid .ll:nth-last-child(3) {
-  display: inline-block;
-}
-.mid .ll:nth-last-child(3):after {
-  padding: 0 1rem;
-  content: "...";
-}
+
+/*.mid .ll:nth-child(2) a {*/
+  /*display: inline-block;*/
+/*}*/
+/*.mid .ll:nth-child(3) a {*/
+  /*display: inline-block;*/
+/*}*/
+/*.mid .ll:nth-child(4) a {*/
+  /*display: inline-block;*/
+/*}*/
+/*.mid .ll:nth-child(5) a {*/
+  /*display: inline-block;*/
+/*}*/
+/*.mid .ll:nth-last-child(2) a {*/
+  /*display: inline-block;*/
+/*}*/
+/*.mid .ll:nth-last-child(3) {*/
+  /*display: inline-block;*/
+/*}*/
+/*.mid .ll:nth-last-child(3):after {*/
+  /*padding: 0 1rem;*/
+  /*content: "...";*/
+/*}*/
 

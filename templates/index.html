@@ -5,10 +5,22 @@
 {% endblock %}
 {% block custom_css %}
     <link rel="stylesheet" href="{% static 'css/pagi-style.css' %}" media="screen" type="text/css"/>
+
+    <style>
+
+        {% for page in show_num %}
+            .mid .ll:nth-child({{ page }}) a {
+              display: inline-block;
+            }
+        {% endfor %}
+
+
+    </style>
+
 {% endblock %}
 {% block left_content %}
     <div class="col-md-8">
-    {% for post in posts %}
+    {% for post in page_posts.object_list %}
         <article class="blog-post">
             <div class="blog-post-body" style="margin-top: -35px;">
                 <h3><a href="{% url 'post' post.id %}">{{ post.title }}</a></h3>
@@ -34,25 +46,30 @@
         <div class="cont mid">
             <div class="pagination">
                 <ul class="uu">
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="act ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
-                    <li class="ll"><a href="#"></a></li>
+{#                    {{ page_posts }}#}
+                    {% if page_posts.has_previous %}
+                        <li class="ll"><a href="?{{ page_posts.previous_page_number.querystring }}"></a></li>
+                    {% else %}
+                        <li class="ll"><a href=""></a></li>
+                    {% endif %}
+
+                    {% for page in page_posts.pages %}
+                        {% if page %}
+                            {% ifequal page page_posts.number %}
+                                <li class="act ll"><a href="?{{ page.querystring }}"></a></li>
+                            {% else %}
+                                <li class="ll"><a href="?{{ page.querystring }}"></a></li>
+                            {% endifequal %}
+                        {% else %}
+                            <li class="ll"><a href="#"></a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if page_posts.has_next %}
+                        <li class="ll"><a href="?{{ page_posts.next_page_number.querystring }}"></a></li>
+                    {% else %}
+                        <li class="ll"><a href=""></a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

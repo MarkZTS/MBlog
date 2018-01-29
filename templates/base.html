@@ -274,6 +274,22 @@
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/jquery.bxslider.js' %}"></script>
 <script src="{% static 'js/mooz.scripts.min.js' %}"></script>
-{% block custom_js %}{% endblock %}
+{% block custom_js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.goup.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $.goup({
+                trigger: 100,
+                bottomOffset: 50,
+                locationOffset: 50,
+                title: 'Top',
+                titleAsText: true
+            });
+
+        });
+    </script>
+{% endblock %}
 </body>
 </html>

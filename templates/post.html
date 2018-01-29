@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}
     {{ post.title }} | ZTSong
@@ -21,5 +21,68 @@
                 </div>
             </div>
         </article>
+    </div>
+{% endblock %}
+{% block right_content %}
+    <div class="col-md-4 sidebar-gutter">
+        <aside>
+            <!-- sidebar-widget -->
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">关 于 自 己</h3>
+                <div class="widget-container widget-about">
+                    <a href="post.html"><img src="{% static 'images/750x500-1.jpg' %}" alt=""></a>
+                    <h4>Mark</h4>
+                    <div class="author-title">Author</div>
+                    <p>爱生活，爱技术</p>
+                    <p>用技术实现梦想，用技术改变未来</p>
+                </div>
+            </div>
+            <!-- sidebar-widget -->
+            <div class="sidebar-widget">
+                {#						<h3 class="sidebar-title">Featured Posts</h3>#}
+                <h3 class="sidebar-title">热 门 文 章</h3>
+                <div class="widget-container">
+                    {% for hot_post in hot_posts %}
+                        <article class="widget-post">
+                            <div class="post-image">
+                                {#                                <a href="post.html"><img src="{% static 'images/90x60-1.jpg' %}" alt=""></a>#}
+                                <a href="post.html"><img src="{{ MEDIA_URL }}{{ hot_post.image }}" alt=""></a>
+                            </div>
+                            <div class="post-body">
+                                <h2><a href="post.html">{{ hot_post.title }}</a></h2>
+                                <div class="post-meta">
+                                    <span><i class="fa fa-clock-o"></i> {{ hot_post.date_publish.date }}</span> <span><a
+                                        href="post.html"><i
+                                        class="fa fa-comment-o"></i> 23</a></span>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- sidebar-widget -->
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">Socials</h3>
+                <div class="widget-container">
+                    <div class="widget-socials">
+                        <a href="#"><i class="fa fa-qq"></i></a>
+                        <a href="#"><i class="fa fa-weixin"></i></a>
+                        <a href="#"><i class="fa fa-weibo"></i></a>
+                        <a href="https://github.com/MarkZTS"><i class="fa fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- sidebar-widget -->
+            <div class="sidebar-widget">
+                <h3 class="sidebar-title">分 类</h3>
+                <div class="widget-container">
+                    <ul>
+                        {% for category in categorys %}
+                            <li><a href="#">{{ category.name }} ({{ category.get_post_nums }})</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </aside>
     </div>
 {% endblock %}
