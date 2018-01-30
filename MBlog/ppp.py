@@ -3,7 +3,11 @@
 # @Author  : ZTS
 # @Software: PyCharm
 
-for i in range(3,7):
-    print(i)
 
-print("---",15//2)
+page_num = 16/5
+print(page_num)
+print(int(page_num+1))
+if page_num.is_integer():
+    print("123")
+else:
+    print("234")
