@@ -9,21 +9,56 @@
 {% block left_content %}
     <div class="col-md-8">
         <article class="blog-post">
-{#            <div class="blog-post-image">#}
-{#                <a href="{% url 'post' post.id %}"><img src="{% static 'images/750x500-1.jpg' %}" alt=""></a>#}
-{#            </div>#}
+            {#            <div class="blog-post-image">#}
+            {#                <a href="{% url 'post' post.id %}"><img src="{% static 'images/750x500-1.jpg' %}" alt=""></a>#}
+            {#            </div>#}
             <div class="blog-post-body">
                 <h2><a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
-                <div class="post-meta"><span>by <a href="#">{{ post.user.username }}</a></span>/<span><i class="fa fa-clock-o"></i>{{ post.date_publish.date }}</span>/<span><i
+                <div class="post-meta"><span>by <a href="#">{{ post.user.username }}</a></span>/<span><i
+                        class="fa fa-clock-o"></i>{{ post.date_publish.date }}</span>/<span><i
                         class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
                 <div class="blog-post-text">
                     <p>{{ post.content|safe }}</p>
                 </div>
             </div>
             <h4 style="font-size: 17px;text-align: center;">小额赞助，您的支持将鼓励我继续创作！</h4>
-            <button type="button" class="btn btn-danger" style="display: table; width: auto;margin-left: auto;
-margin-right: auto;" >赞助</button>
-            <img src="{% static 'images/90x60-1.jpg' %}" alt="..." class="img-thumbnail">
+            <button type="button" class="btn btn-danger zz-btn" style="display: table; width: auto;margin-left: auto;
+margin-right: auto;outline: none;">赞助
+            </button>
+            <div class="row hide h" style="margin-top: 20px;">
+                <div class="col-md-3 col-md-offset-3">
+                    <img src="{% static 'images/alipay.jpg' %}" alt="..." class="img-thumbnail"
+                         style="height: 150px;width: 150px;cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+                    <span style="margin-left: 50px;">支 付 宝</span>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img src="{% static 'images/alipay.jpg' %}" alt="..." class="img-thumbnail"
+                                         style="width: 612px;height: 612px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="margin-left: 10px;">
+                    <img src="{% static 'images/wechatpay.jpg' %}" alt="..." class="img-thumbnail"
+                         style="height: 150px;width: 150px;cursor: pointer;"  data-toggle="modal" data-target="#myModal2">
+                    <span style="margin-left: 60px;">微 信</span>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <img src="{% static 'images/wechatpay.jpg' %}" alt="..." class="img-thumbnail"
+                                         style="width: 612px;height: 612px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </article>
     </div>
@@ -90,4 +125,14 @@ margin-right: auto;" >赞助</button>
             </div>
         </aside>
     </div>
+{% endblock %}
+
+{% block custom_js %}
+
+    <script>
+        $(".zz-btn").click(function () {
+            $(".h").toggleClass("hide");
+        })
+    </script>
+
 {% endblock %}
