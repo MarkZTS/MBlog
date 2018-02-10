@@ -14,9 +14,12 @@
             {#            </div>#}
             <div class="blog-post-body">
                 <h2><a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
-                <div class="post-meta"><span>by <a href="#">{{ post.user.username }}</a></span>/<span><i
-                        class="fa fa-clock-o"></i>{{ post.date_publish.date }}</span>/<span><i
-                        class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+                <div class="post-meta">
+                    <span>by <a href="#">{{ post.user.username }}</a></span>/
+                    {#                    <span><i class="fa fa-tag"></i> <a href="#">web</a></span>/#}
+                    <span><i class="fa fa-clock-o"></i>{{ post.date_publish.date }}</span>/
+                    <span><i class="fa fa-comment-o"></i> <a href="#">343</a></span>
+                </div>
                 <div class="blog-post-text">
                     <p>{{ post.content|safe }}</p>
                 </div>
@@ -28,7 +31,8 @@ margin-right: auto;outline: none;">赞助
             <div class="row hide h" style="margin-top: 20px;">
                 <div class="col-md-3 col-md-offset-3">
                     <img src="{% static 'images/alipay.jpg' %}" alt="..." class="img-thumbnail"
-                         style="height: 150px;width: 150px;cursor: pointer;" data-toggle="modal" data-target="#myModal1">
+                         style="height: 150px;width: 150px;cursor: pointer;" data-toggle="modal"
+                         data-target="#myModal1">
                     <span style="margin-left: 50px;">支 付 宝</span>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -44,7 +48,8 @@ margin-right: auto;outline: none;">赞助
                 </div>
                 <div class="col-md-3" style="margin-left: 10px;">
                     <img src="{% static 'images/wechatpay.jpg' %}" alt="..." class="img-thumbnail"
-                         style="height: 150px;width: 150px;cursor: pointer;"  data-toggle="modal" data-target="#myModal2">
+                         style="height: 150px;width: 150px;cursor: pointer;" data-toggle="modal"
+                         data-target="#myModal2">
                     <span style="margin-left: 60px;">微 信</span>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -59,6 +64,10 @@ margin-right: auto;outline: none;">赞助
                     </div>
                 </div>
             </div>
+
+            <!--PC版-->
+            <div id="SOHUCS" sid="{{ post.id }}"></div>
+
 
         </article>
     </div>
@@ -134,5 +143,14 @@ margin-right: auto;outline: none;">赞助
             $(".h").toggleClass("hide");
         })
     </script>
+
+    <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+    <script type="text/javascript">
+        window.changyan.api.config({
+            appid: 'cytsueQ3k',
+            conf: 'prod_1675a7369723f291006a441ab75cb858'
+        });
+    </script>
+
 
 {% endblock %}

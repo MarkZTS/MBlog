@@ -4,10 +4,11 @@
 # @Software: PyCharm
 
 
-page_num = 16/5
-print(page_num)
-print(int(page_num+1))
-if page_num.is_integer():
-    print("123")
-else:
-    print("234")
+a = [1, 2, 3, 4, 5, 5, 6, 6, 6]
+b = set(a)
+
+print(b)
+
+for i in b:
+    print(type(i))
+    print(i)

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<title>404 Page</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="{% static 'css/404.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Viga' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="main">
+		<div class="nav_w3l">
+			<ul>
+				<li><a href="index.html"></a></li>
+				<li><a href="index.html" class="hvr-sweep-to-bottom"></a></li>
+				<li><a href="index.html" class="hvr-sweep-to-bottom"></a></li>
+				<li><a href="index.html" class="hvr-sweep-to-bottom"></a></li>
+				<li><a href="index.html" class="hvr-sweep-to-bottom"></a></li>
+			</ul>
+		</div>
+		<h1>404</h1>
+		<h2>ooops, something goes wrong</h2>
+		<div class="more_w3ls">
+			<a href="{% url 'index' %}">Go Back Home</a>
+		</div>
+
+	</div>
+</body>
+</html>

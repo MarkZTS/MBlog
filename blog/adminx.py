@@ -7,7 +7,7 @@
 import xadmin
 from xadmin import views
 
-from .models import Article, Tag, Comment, Catagory, Links, Ad
+from .models import Article, Tag, Comment, Catagory, Links, Ad, AboutMe
 
 
 class BaseSetting(object):
@@ -57,11 +57,18 @@ class AdAdmin(object):
     list_filter = ['title', 'description', 'image_url', 'callback_url', 'index', 'date_publish']
 
 
+class AboutMeAdmin(object):
+    list_display = ['desc', 'date_publish']
+    search_fields = ['desc']
+    list_filter = ['desc', 'date_publish']
+
+
 xadmin.site.register(Article, ArticleAdmin)
 xadmin.site.register(Tag)
 xadmin.site.register(Catagory)
 xadmin.site.register(Comment, CommentAdmin)
 xadmin.site.register(Ad, AdAdmin)
 xadmin.site.register(Links, LinksAdmin)
+xadmin.site.register(AboutMe, AboutMeAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSetting)

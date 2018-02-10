@@ -18,15 +18,22 @@
     </style>
 
 {% endblock %}
+{% block logo %}
+    <header>
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a>
+        </header>
+{% endblock %}
 {% block left_content %}
     <div class="col-md-8">
     {% for post in page_posts.object_list %}
         <article class="blog-post">
             <div class="blog-post-body" style="margin-top: -35px;">
                 <h3><a href="{% url 'post' post.id %}">{{ post.title }}</a></h3>
-                <div class="post-meta"><span>by <a href="#">{{ post.user.username }}</a></span>/<span><i
-                        class="fa fa-clock-o"></i>{{ post.date_publish.date }}</span>/<span><i
-                        class="fa fa-comment-o"></i> <a href="#">343</a></span></div>
+                <div class="post-meta">
+                    <span>by <a href="#">{{ post.user.username }}</a></span>/
+                    <span><i class="fa fa-clock-o"></i>{{ post.date_publish.date }}</span>/
+                    <span><i class="fa fa-comment-o"></i> <a href="#">343</a></span>
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                         <a href="{% url 'post' post.id %}"><img src="{{ MEDIA_URL }}{{ post.image }}" alt=""
@@ -101,10 +108,10 @@
                                 <a href="post.html"><img src="{{ MEDIA_URL }}{{ hot_post.image }}" alt=""></a>
                             </div>
                             <div class="post-body">
-                                <h2><a href="post.html">{{ hot_post.title }}</a></h2>
+                                <h2><a href="{% url 'post' hot_post.id %}">{{ hot_post.title }}</a></h2>
                                 <div class="post-meta">
                                     <span><i class="fa fa-clock-o"></i> {{ hot_post.date_publish.date }}</span> <span><a
-                                        href="post.html"><i
+                                        href="{% url 'post' hot_post.id %}"><i
                                         class="fa fa-comment-o"></i> 23</a></span>
                                 </div>
                             </div>
@@ -130,7 +137,7 @@
                 <div class="widget-container">
                     <ul>
                         {% for category in categorys %}
-                            <li><a href="#">{{ category.name }} ({{ category.get_post_nums }})</a></li>
+                            <li><a href="{% url 'category_post' category.id %}">{{ category.name }} ({{ category.get_post_nums }})</a></li>
                         {% endfor %}
                     </ul>
                 </div>

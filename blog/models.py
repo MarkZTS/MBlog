@@ -135,3 +135,19 @@ class Ad(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class AboutMe(models.Model):
+    '''
+    关于自己
+    '''
+    desc = models.TextField(verbose_name="关于自己描述")
+    date_publish = models.DateTimeField(default=datetime.now, verbose_name='发布时间')
+
+    class Meta:
+        verbose_name = "关于自己"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return "关于自己"
+

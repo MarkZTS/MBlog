@@ -25,9 +25,9 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 SECRET_KEY = '^d7psn=es@g%7uiek4h_%w%wn*3ge5kxlt7=%do41)5^1_3&70'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -139,6 +139,8 @@ AUTH_USER_MODEL = 'blog.User'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # PAGINATION_SETTINGS = {
 #     'PAGE_RANGE_DISPLAYED': 1,
