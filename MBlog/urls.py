@@ -19,7 +19,7 @@ import xadmin
 from django.views.static import serve
 
 from blog.views import IndexView, PostView, AboutView, ArchiveView, CategoryView, CategoryPostView
-from .settings import MEDIA_ROOT, STATIC_ROOT
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -37,7 +37,7 @@ urlpatterns = [
     # 分类
     url(r'^categories/$', CategoryView.as_view(), name="categories"),
 
-    url(r'^static/(?P<path>.*)$', serve, {"document_root":STATIC_ROOT}),
+    # url(r'^static/(?P<path>.*)$', serve, {"document_root":STATIC_ROOT}),
 
     # 同种分类文章
     url(r'^category/(?P<category_id>\d+)/$', CategoryPostView.as_view(), name="category_post"),
